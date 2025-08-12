@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+        <style>
+            .gradient-title {
+                background: linear-gradient(90deg, #00c3ff 0%, #ffff1c 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+            }
+            .feature-highlight {
+                color: #00c3ff;
+                text-shadow: 0 2px 8px #fff70099, 0 1px 2px #0003;
+            }
+            .section-title {
+                color: #ff6a00;
+                text-shadow: 0 2px 8px #fff70099, 0 1px 2px #0003;
+            }
+            .spec-label {
+                color: #00c3ff;
+                font-weight: bold;
+            }
+            .spec-value {
+                color: #ff6a00;
+            }
+        </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wakey - Robot Asisten Demison</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        animation: {
+                            'spin-slow': 'spin 4s linear infinite',
+                            'bounce-slow': 'bounce 2s infinite',
+                            'pulse-fast': 'pulse 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                            'fade-in': 'fadeIn 1.2s ease-in',
+                            'slide-up': 'slideUp 1s ease-out',
+                        },
+                        keyframes: {
+                            fadeIn: {
+                                '0%': { opacity: '0' },
+                                '100%': { opacity: '1' },
+                            },
+                            slideUp: {
+                                '0%': { transform: 'translateY(40px)', opacity: '0' },
+                                '100%': { transform: 'translateY(0)', opacity: '1' },
+                            },
+                        },
+                    },
+                },
+            }
+        </script>
+    <style>
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .robot-animation {
+            animation: pulse 2s infinite;
+        }
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        body {
+            background-image: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1500&q=80'); /* Gambar robot keren dari Unsplash */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .overlay {
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,50,0.3) 100%);
+            min-height: 100vh;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            background-size: 200% 200%;
+            animation: gradientMove 8s ease-in-out infinite alternate;
+        }
+        @keyframes gradientMove {
+            0% {
+                background-position: left top;
+            }
+            100% {
+                background-position: right bottom;
+            }
+        }
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="overlay"></div>
+    <div class="container mx-auto px-2 md:px-4 py-4 md:py-8 content animate-fade-in">
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <div class="flex justify-center mb-6">
+                <div class="robot-animation flex flex-col items-center">
+                    <img src="wakey.png" alt="Ilustrasi robot Wakey - Desain humanoid dengan wajah layar LED biru dan bodi silver" class="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain animate-spin-slow hover:animate-bounce-slow transition duration-700">
+                    <h1 class="text-xl sm:text-2xl md:text-4xl font-bold mt-4 animate-slide-up gradient-title text-center">WAKEY</h1>
+                    <p class="mt-2 text-xs sm:text-sm md:text-base text-white text-center px-2">Ini adalah robot Wakey. Klik tombol di bawah untuk berinteraksi atau kirim perintah melalui kotak pesan di bawah.</p>
+                </div>
+            </div>
+            <!-- Judul WAKEY dipindahkan ke atas gambar -->
+            <p class="text-xl feature-highlight">Robot Asisten Cerdas dengan Teknologi Demison</p>
+            <div class="mt-4 flex justify-center">
+                <span class="status-indicator bg-green-500 mr-2"></span>
+                <span class="text-sm font-bold text-green-500" style="text-shadow:0 0 8px #39ff14,0 1px 2px #0003;letter-spacing:1px;">System Status: <span style="color:#39ff14;text-shadow:0 0 12px #39ff14;">Aktif</span></span>
+            </div>
+        </header>
+
+        <!-- Main Features Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold text-center mb-8 animate-fade-in section-title">Fitur Utama</h2>
+                    <style>
+                        body {
+                            background-image: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1500&q=80'); /* Gambar robot menarik dari Unsplash */
+                            background-size: cover;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            min-height: 100vh;
+                            margin: 0;
+                            font-family: Arial, sans-serif;
+                        }
+                        .overlay {
+                            background: rgba(0, 0, 0, 0.4);
+                            min-height: 100vh;
+                            width: 100vw;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+                        .content {
+                            position: relative;
+                            z-index: 2;
+                            color: #fff;
+                            padding: 40px;
+                            text-align: center;
+                        }
+                    </style>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                <!-- Feature 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-4 animate-bounce-slow">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 feature-highlight">Integrasi Demison Langsung</h3>
+                    <p class="text-gray-600">Sistem pemrograman real-time dengan arsitektur modular untuk pembaruan instan</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 feature-highlight">Voice Recognition</h3>
+                    <p class="text-gray-600">Mengerti bahasa alami dengan pemrosesan NLP mutakhir</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 feature-highlight">Adaptive Learning</h3>
+                    <p class="text-gray-600">Algoritma machine learning yang terus berkembang berdasarkan interaksi pengguna</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programming Interface Section -->
+        <section class="mb-16 bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4 md:p-6 bg-blue-700 text-white">
+                <h2 class="text-2xl font-semibold">Demison Programming Console</h2>
+                <p class="text-blue-100">Interface pemrograman langsung untuk modifikasi perilaku robot</p>
+            </div>
+            <div class="p-6">
+                <div class="mb-4 md:mb-6">
+                    <label class="block text-gray-700 mb-2 font-medium">Module Selector</label>
+                    <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <option>Motion Control</option>
+                        <option>Voice Processing</option>
+                        <option>Vision System</option>
+                        <option selected>Wakey Core (v2.1.8)</option>
+                    </select>
+                </div>
+
+                <div class="mb-4 md:mb-6">
+                    <label class="block text-gray-700 mb-2 font-medium">Code Editor</label>
+                    <div class="border border-gray-300 rounded-lg overflow-hidden">
+                        <div class="bg-gray-800 text-gray-100 p-4 font-mono text-sm overflow-x-auto">
+                            <span class="text-blue-400">function</span> <span class="text-yellow-300">wakeyRespond</span>(input) {<br>
+                            &nbsp;&nbsp;<span class="text-blue-400">const</span> <span class="text-green-400">response</span> = <span class="text-blue-400">await</span> <span class="text-purple-400">processInput</span>(input);<br>
+                            &nbsp;&nbsp;<span class="text-blue-400">if</span> (<span class="text-green-400">response</span>.<span class="text-purple-400">confidence</span> > <span class="text-orange-400">0.8</span>) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">return</span> <span class="text-green-400">response</span>.<span class="text-purple-400">action</span>();<br>
+                            &nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;<span class="text-blue-400">else</span> {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">requestClarification</span>();<br>
+                            &nbsp;&nbsp;}<br>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-end space-x-4">
+                    <button class="px-4 md:px-6 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition animate-pulse-fast text-xs md:text-base">Simpan Draft</button>
+                    <button class="px-4 md:px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition animate-bounce text-xs md:text-base">Deploy ke Wakey</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specifications Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold text-center mb-8 section-title">Spesifikasi Teknis</h2>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden text-xs md:text-base">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Komponen</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Spesifikasi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap spec-label">CPU</td>
+                            <td class="px-6 py-4 whitespace-nowrap spec-value">Demison DX-8 Quad Core 2.4GHz</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap spec-label">Memory</td>
+                            <td class="px-6 py-4 whitespace-nowrap spec-value">8GB LPDDR4X</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap spec-label">Storage</td>
+                            <td class="px-6 py-4 whitespace-nowrap spec-value">128GB eMMC + slot microSD</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap spec-label">Sensors</td>
+                            <td class="px-6 py-4 spec-value">LiDAR, IMU 9-axis, Dual Microphone Array, 12MP Camera</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap spec-label">Connectivity</td>
+                            <td class="px-6 py-4 whitespace-nowrap spec-value">Wi-Fi 6, Bluetooth 5.2, LTE Optional</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section class="text-center">
+            <h2 class="text-2xl font-semibold mb-6 text-blue-700">Coba Wakey Sekarang</h2>
+            <div class="bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 p-4 md:p-8 rounded-2xl shadow-2xl max-w-2xl mx-auto border-4 border-blue-400 animate-fade-in">
+                <div class="mb-4 md:mb-6 h-40 md:h-48 overflow-y-auto border-2 border-blue-400 rounded-xl p-2 md:p-4 text-left bg-white bg-opacity-80 shadow-lg">
+                    <div id="conversation" class="space-y-2">
+                        <div class="text-right">
+                            <span class="inline-block bg-blue-100 px-4 py-2 rounded-lg text-black">Wakey, apa kabar?</span>
+                        </div>
+                        <div class="text-left">
+                            <span class="inline-block bg-gray-200 px-4 py-2 rounded-lg text-black">Halo! Saya Wakey siap membantu Anda!</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex">
+                    <input type="text" placeholder="Ketik perintah..." aria-label="Ketik perintah untuk robot Wakey" class="flex-grow px-2 md:px-4 py-2 border-2 border-blue-400 bg-white bg-opacity-95 text-gray-900 rounded-l-xl focus:ring-2 focus:ring-purple-500 shadow-lg transition duration-300 focus:bg-blue-50 focus:border-purple-500 text-xs md:text-base">
+                    <button class="px-2 md:px-6 py-2 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 text-white rounded-r-xl hover:from-purple-600 hover:to-blue-600 transition duration-300 shadow-lg font-bold animate-pulse-fast text-xs md:text-base" onclick="addMessage()" title="Kirim pesan ke robot Wakey">Kirim</button>
+                </div>
+                <p class="mt-2 md:mt-4 text-xs md:text-sm text-white drop-shadow-lg">Masukkan perintah atau pertanyaan Anda di kotak di atas, lalu klik <span class="font-bold text-yellow-300">Kirim</span>. Contoh: <span class="font-semibold text-green-300">"Jalankan diagnostik"</span> atau <span class="font-semibold text-pink-300">"Tunjukkan spesifikasi"</span>. Robot Wakey akan membalas secara otomatis di area percakapan.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-2 md:px-4 text-center text-xs md:text-base">
+            <p class="mb-4">© 2024 Demison Robotics. Hak Cipta Dilindungi.</p>
+            <p class="text-gray-400 text-sm">Wakey v2.1.8 | Demison Engine 5.4</p>
+        </div>
+    </footer>
+
+    <script>
+        function addMessage() {
+            const input = document.querySelector('input');
+            if (input.value.trim() === '') return;
+
+            const conversation = document.getElementById('conversation');
+            
+            // User message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'text-right';
+            userMsg.innerHTML = `<span class="inline-block bg-blue-100 px-4 py-2 rounded-lg">${input.value}</span>`;
+            conversation.appendChild(userMsg);
+            
+            // Simulate Wakey response
+            setTimeout(() => {
+                const wakeyMsg = document.createElement('div');
+                wakeyMsg.className = 'text-left';
+                
+                const responses = [
+                    "Saya sedang memproses permintaan Anda...",
+                    "Perintah diterima, menjalankan tindakan...",
+                    "Maaf, saya membutuhkan klarifikasi lebih lanjut",
+                    "Diagnostik sistem menunjukkan semua normal",
+                    "Versi terbaru sistem saya adalah 2.1.8",
+                    "Baterai saat ini 87% - cukup untuk 12 jam operasi"
+                ];
+                
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                wakeyMsg.innerHTML = `<span class="inline-block bg-gray-200 px-4 py-2 rounded-lg">${randomResponse}</span>`;
+                conversation.appendChild(wakeyMsg);
+                
+                // Scroll to bottom
+                conversation.parentElement.scrollTop = conversation.parentElement.scrollHeight;
+            }, 800);
+            
+            input.value = '';
+        }
+    </script>
+</body>
+</html>
